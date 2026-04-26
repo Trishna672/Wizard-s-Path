@@ -1,0 +1,189 @@
+body {
+    margin: 0;
+    font-family: 'Cinzel Decorative', 'Times New Roman', serif;
+    background: #000;
+    color: #fff;
+}
+
+.battle-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.enemy-box,
+.player-box {
+    width: 320px;
+    background: rgba(30, 30, 30, 0.9);
+    border: 3px solid gold;
+    padding: 12px;
+    font-weight: 900;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+    color: #f8f4e3;
+    border-radius: 8px;
+}
+
+.enemy-box {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.player-box {
+    position: absolute;
+    bottom: 160px;
+    right: 20px;
+}
+
+.hp-bar {
+    background: #333;
+    height: 14px;
+    border: 2px solid rgba(0, 0, 0, 0.6);
+    margin-top: 8px;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.hp-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00c000, #009900);
+    transition: width .3s ease;
+}
+
+.hp-fill.low {
+    background: linear-gradient(90deg, #ff0000, #aa0000);
+}
+
+.hp-fill.medium {
+    background: linear-gradient(90deg, #ffcc00, #cc9900);
+}
+
+.battle-log {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    width: 42%;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border: 3px solid rgba(79, 77, 77, 0.9);
+    padding: 15px;
+    font-size: 1.05em;
+    min-height: 120px;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+form {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 48%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+form button {
+    font-size: 1.1em;
+    font-weight: bold;
+    border: 2px solid #000;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    transition: transform .1s ease, box-shadow .15s ease;
+}
+
+form button:focus {
+    outline: 3px solid gold;
+}
+
+form button:nth-child(1) {
+    background: #ad0606cc;
+}
+
+form button:nth-child(2) {
+    background: #f2b934;
+}
+
+form button:nth-child(3) {
+    background: #0230aee1;
+}
+
+form button:nth-child(4) {
+    background: #015b13d6;
+}
+
+form button:hover {
+    transform: scale(1.04);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+#game-container {
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 95%;
+    height: auto;
+    min-height: 400px;
+    background-size: cover;
+    overflow: hidden;
+}
+
+#character,
+#enemy {
+    position: absolute;
+    width: 300px;
+    height: auto;
+    image-rendering: auto;
+    filter: drop-shadow(0 12px 10px rgba(0, 0, 0, 0.6));
+}
+
+#character {
+    position: absolute;
+    left: 200px;
+    bottom: 130px; /* moved slightly lower for desktop */
+    z-index: 5;
+}
+
+#enemy {
+    right: 170px;
+    bottom: 380px;
+}
+
+@media (max-width:900px) {
+
+    .enemy-box,
+    .player-box {
+        width: 220px;
+        font-size: 0.9em;
+    }
+
+    form {
+        width: 92%;
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+        grid-template-columns: repeat(2, 1fr);
+        bottom: 10px;
+    }
+
+    #character {
+        bottom: 140px; /* corrected spacing, no space in 'px' */
+    }
+
+    #enemy {
+        width: 160px;
+    }
+
+    .battle-log {
+        width: 90%;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 130px;
+    }
+}
